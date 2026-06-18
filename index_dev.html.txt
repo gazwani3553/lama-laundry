@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>مغاسل لمى الذكية</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#eef3fb;
+}
+
+.header{
+background:#1677ea;
+color:white;
+padding:35px;
+text-align:center;
+}
+
+.icon{
+font-size:80px;
+}
+
+.title{
+font-size:36px;
+margin-top:10px;
+}
+
+.subtitle{
+opacity:.9;
+}
+
+.box{
+background:white;
+max-width:500px;
+margin:25px auto;
+padding:25px;
+border-radius:20px;
+box-shadow:
+0 10px 25px rgba(0,0,0,.1);
+}
+
+input,
+select,
+textarea{
+
+width:100%;
+
+padding:14px;
+
+margin:10px 0;
+
+border-radius:12px;
+
+border:1px solid #ddd;
+
+box-sizing:border-box;
+
+}
+
+textarea{
+height:90px;
+}
+
+button{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-size:16px;
+
+margin-top:10px;
+
+}
+
+.send{
+background:#1677ea;
+color:white;
+}
+
+.whatsapp{
+background:#25D366;
+color:white;
+}
+
+.success{
+display:none;
+margin-top:15px;
+background:#e8fff0;
+padding:12px;
+border-radius:12px;
+color:#147a39;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<div class="icon">
+🧺
+</div>
+
+<div class="title">
+
+مغاسل لمى الذكية
+
+</div>
+
+<div class="subtitle">
+
+استلام • غسيل • توصيل
+
+</div>
+
+</div>
+
+<div class="box">
+
+<form
+action="https://formspree.io/f/mojzpglk"
+method="POST"
+onsubmit="successMessage()"
+>
+
+<input
+type="text"
+name="name"
+placeholder="الاسم"
+required
+
+>
+
+<input
+type="tel"
+name="phone"
+placeholder="رقم الجوال"
+required
+
+>
+
+<input
+type="text"
+name="address"
+placeholder="العنوان"
+
+>
+
+<select name="service">
+
+<option value="">
+اختر الخدمة
+</option>
+
+<option>
+غسيل ملابس
+</option>
+
+<option>
+كي ملابس
+</option>
+
+<option>
+غسيل سجاد
+</option>
+
+<option>
+غسيل بطانيات
+</option>
+
+<option>
+غسيل مشالح
+</option>
+
+</select>
+
+<input
+type="date"
+name="date"
+
+>
+
+<input
+type="time"
+name="time"
+
+>
+
+<textarea
+name="message"
+placeholder="تفاصيل إضافية"
+></textarea>
+
+<button
+class="send"
+type="submit"
+
+>
+
+إرسال الطلب 📩
+
+</button>
+
+</form>
+
+<button
+class="whatsapp"
+onclick="window.open('https://wa.me/966534043553')"
+
+>
+
+واتساب 📲
+
+</button>
+
+<div
+class="success"
+id="ok"
+>
+
+تم استلام طلبك بنجاح ✅
+
+</div>
+
+</div>
+
+<script>
+
+function successMessage(){
+
+setTimeout(function(){
+
+document
+.getElementById(
+"ok"
+)
+.style.display=
+"block";
+
+},300);
+
+}
+
+</script>
+
+</body>
+
+</html>
