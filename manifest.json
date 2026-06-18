@@ -1,17 +1,24 @@
 {
 "name":"مغاسل لمى الذكية",
+
 "short_name":"مغاسل لمى",
+
 "start_url":"./",
+
 "display":"standalone",
+
 "background_color":"#1677ea",
+
 "theme_color":"#1677ea",
 
-{
 "icons":[
 {
 "src":"icon-512.png",
+
 "type":"image/png",
+
 "sizes":"512x512"
 }
 ]
+
 }
