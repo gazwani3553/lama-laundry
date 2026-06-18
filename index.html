@@ -3,22 +3,14 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>مغاسل لمى الذكية</title>
 
-<link rel="icon"
-href="logo.png.png">
-
-<link rel="manifest"
-href="manifest.json">
-
-<meta
-name="theme-color"
-content="#1677ea">
+<link rel="icon" href="logo.png.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1677ea">
 
 <style>
 
@@ -52,26 +44,18 @@ max-width:550px;
 margin:25px auto;
 padding:25px;
 border-radius:20px;
-box-shadow:
-0 10px 25px rgba(0,0,0,.1);
+box-shadow:0 10px 25px rgba(0,0,0,.1);
 }
 
 input,
 select,
 textarea{
-
 width:100%;
-
 padding:14px;
-
 margin:10px 0;
-
 border-radius:12px;
-
 border:1px solid #ddd;
-
 box-sizing:border-box;
-
 }
 
 textarea{
@@ -79,26 +63,13 @@ height:90px;
 }
 
 button{
-
 width:100%;
-
 padding:15px;
-
 border:none;
-
 border-radius:12px;
-
 margin-top:10px;
-
 font-size:16px;
-
 cursor:pointer;
-
-}
-
-.send{
-background:#1677ea;
-color:white;
 }
 
 .whatsapp{
@@ -107,17 +78,11 @@ color:white;
 }
 
 .success{
-
 display:none;
-
 background:#e8fff0;
-
-padding:20px;
-
+padding:18px;
 margin-top:20px;
-
 border-radius:15px;
-
 }
 
 </style>
@@ -144,12 +109,6 @@ class="logo"
 
 <div class="box">
 
-<form
-action="https://formspree.io/f/mojzpglk"
-method="POST"
-onsubmit="successMessage()"
->
-
 <input
 type="text"
 name="name"
@@ -175,76 +134,37 @@ placeholder="العنوان"
 
 <input
 type="text"
-name="location"
-placeholder="رابط الموقع (اختياري)"
+name="unit"
+placeholder="رقم الشقة / رقم الاشتراك (اختياري)"
 
 >
 
-<select
-name="service"
+<select name="service">
 
->
-
-<option>
-🧺 اختر الخدمة
-</option>
-
-<option>
-غسيل ملابس
-</option>
-
-<option>
-كي ملابس
-</option>
-
-<option>
-غسيل بطانيات
-</option>
-
-<option>
-غسيل سجاد
-</option>
-
-<option>
-غسيل مشالح
-</option>
+<option>🧺 اختر الخدمة</option>
+<option>غسيل ملابس</option>
+<option>كي ملابس</option>
+<option>غسيل بطانيات</option>
+<option>غسيل سجاد</option>
+<option>غسيل مشالح</option>
 
 </select>
 
-<select
-name="delivery"
+<select name="delivery">
 
->
+<option>🚚 طريقة الاستلام</option>
 
-<option>
-🚚 طريقة الاستلام
-</option>
+<option>استلام من المنزل</option>
 
-<option>
-استلام من المنزل
-</option>
+<option>تسليم للمغسلة</option>
 
-<option>
-تسليم للمغسلة
-</option>
-
-<option>
-استلام + توصيل
-</option>
+<option>استلام + توصيل</option>
 
 </select>
 
-<input
-type="date"
-name="date"
+<input type="date" name="date">
 
->
-
-<input
-type="time"
-name="time"
-
->
+<input type="time" name="time">
 
 <textarea
 name="message"
@@ -252,20 +172,8 @@ placeholder="تفاصيل إضافية"
 ></textarea>
 
 <button
-type="submit"
-class="send"
-
->
-
-إرسال الطلب 📩
-
-</button>
-
-</form>
-
-<button
 class="whatsapp"
-onclick="sendWhatsApp()"
+onclick="sendWhatsApp();successMessage();"
 
 >
 
@@ -294,13 +202,13 @@ id="ok"
 
 <p>
 
-📍 يرجى التأكد من صحة الموقع ورقم الجوال.
+📍 يرجى التأكد من صحة العنوان ورقم الجوال.
 
 </p>
 
 <hr>
 
-<p>1️⃣ تم استلام الطلب</p>
+<p>1️⃣ تم استلام الطلب ✅</p>
 
 <p>2️⃣ جاري الاستلام</p>
 
@@ -308,7 +216,7 @@ id="ok"
 
 <p>4️⃣ جاهز للتوصيل</p>
 
-<p>5️⃣ تم التسليم ✅</p>
+<p>5️⃣ سيتم التواصل معك عند جاهزية الطلب 🚚</p>
 
 </div>
 
@@ -316,27 +224,27 @@ id="ok"
 
 <script>
 
+let orderId="";
+
 function sendWhatsApp(){
 
-let id=
+if(orderId===""){
 
-"LM-"
-
-+
-
+orderId=
+"LM-"+
 Math.floor(
 1000+
-Math.random()
-*
-9000
+Math.random()*9000
 );
+
+}
 
 let text=
 
 `🧺 طلب جديد
 
 📦 رقم الطلب:
-${id}
+${orderId}
 
 👤 ${document.querySelector('[name=name]').value}
 
@@ -344,7 +252,7 @@ ${id}
 
 📍 ${document.querySelector('[name=address]').value}
 
-🗺️ ${document.querySelector('[name=location]').value}
+🏠 ${document.querySelector('[name=unit]').value}
 
 🧼 ${document.querySelector('[name=service]').value}
 
@@ -357,30 +265,14 @@ ${id}
 📝 ${document.querySelector('[name=message]').value}`;
 
 window.open(
-
 "https://wa.me/966534043553?text="
 +
-
 encodeURIComponent(text)
-
 );
 
 }
 
 function successMessage(){
-
-let id=
-
-"LM-"
-
-+
-
-Math.floor(
-1000+
-Math.random()
-*
-9000
-);
 
 document
 .getElementById(
@@ -391,9 +283,7 @@ document
 "📦 رقم الطلب: "
 +
 
-id;
-
-setTimeout(function(){
+orderId;
 
 document
 .getElementById(
@@ -401,8 +291,6 @@ document
 )
 .style.display=
 "block";
-
-},300);
 
 }
 
