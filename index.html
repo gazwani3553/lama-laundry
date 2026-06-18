@@ -274,6 +274,17 @@ encodeURIComponent(text)
 
 function successMessage(){
 
+if(orderId===""){
+
+orderId=
+"LM-"+
+Math.floor(
+1000+
+Math.random()*9000
+);
+
+}
+
 document
 .getElementById(
 "order"
@@ -292,7 +303,20 @@ document
 .style.display=
 "block";
 
+window.scrollTo({
+
+top:
+document.body.scrollHeight,
+
+behavior:
+"smooth"
+
+});
+
+return false;
+
 }
+
 
 </script>
 
