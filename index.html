@@ -3,6 +3,7 @@
 <html lang="ar" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -18,17 +19,17 @@ background:#eef3fb;
 
 .header{
 background:#1677ea;
-color:white;
 padding:35px;
 text-align:center;
+color:white;
 }
 
 .logo{
 width:220px;
 max-width:90%;
 background:white;
-padding:10px;
-border-radius:25px;
+padding:12px;
+border-radius:30px;
 box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
@@ -157,24 +158,55 @@ placeholder="العنوان"
 
 >
 
-<select
-name="service"
-
->
+<select name="service">
 
 <option value="">
-اختر الخدمة
+🧺 اختر الخدمة
 </option>
 
-<option>غسيل ملابس</option>
+<option>
+🧺 غسيل ملابس
+</option>
 
-<option>كي ملابس</option>
+<option>
+👔 كي ملابس
+</option>
 
-<option>غسيل سجاد</option>
+<option>
+🛏️ غسيل بطانيات
+</option>
 
-<option>غسيل بطانيات</option>
+<option>
+🧼 غسيل سجاد
+</option>
 
-<option>غسيل مشالح</option>
+<option>
+🥼 غسيل مشالح
+</option>
+
+<option>
+⚡ غسيل سريع
+</option>
+
+</select>
+
+<select name="delivery">
+
+<option value="">
+🚚 طريقة الاستلام
+</option>
+
+<option>
+🚚 استلام من المنزل
+</option>
+
+<option>
+🏪 تسليم للمغسلة
+</option>
+
+<option>
+🚚↔️ استلام + توصيل
+</option>
 
 </select>
 
@@ -244,6 +276,8 @@ let text=
 
 🧼 ${document.querySelector('[name=service]').value}
 
+🚚 ${document.querySelector('[name=delivery]').value}
+
 📅 ${document.querySelector('[name=date]').value}
 
 ⏰ ${document.querySelector('[name=time]').value}
@@ -253,7 +287,6 @@ let text=
 window.open(
 
 "https://wa.me/966534043553?text="
-
 +
 
 encodeURIComponent(text)
