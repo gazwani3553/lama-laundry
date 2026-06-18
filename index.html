@@ -271,20 +271,14 @@ window.open(
 encodeURIComponent(text)
 );
 
-}
-
-function successMessage(){
-
-if(orderId===""){
-
-orderId=
-"LM-"+
-Math.floor(
-1000+
-Math.random()*9000
+setTimeout(
+successMessage,
+500
 );
 
 }
+
+function successMessage(){
 
 document
 .getElementById(
@@ -304,22 +298,10 @@ document
 .style.display=
 "block";
 
-window.scrollTo({
-
-top:
-document.body.scrollHeight,
-
-behavior:
-"smooth"
-
-});
-
-
-
 }
 
-
 </script>
+
 
 </body>
 
