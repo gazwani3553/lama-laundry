@@ -863,6 +863,28 @@ confirmOrder
 
 ){
 
+if(
+
+confirm(
+
+`🧺 مراجعة الطلب
+
+👤 ${document.querySelector('[name=name]').value}
+
+🧼 ${document.querySelector('[name=service]').value}
+
+🚚 ${document.querySelector('[name=delivery]').value}
+
+📅 ${document.querySelector('[name=date]').value}
+
+⏰ ${document.querySelector('[name=time]').value}
+
+تأكيد إرسال الطلب؟`
+
+)
+
+){
+
 window.open(
 
 "https://wa.me/966534043553?text="
@@ -874,6 +896,9 @@ encodeURIComponent(text),
 "_blank"
 
 );
+
+}
+
 
 document
 
