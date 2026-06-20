@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#1677ea">
 <link
  rel="apple-touch-icon"
-href="app-icon.png">
+href="app-icon.png"> 
  <link
 rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -962,6 +962,19 @@ document
 .style.borderColor=
 
 "#ff3b30";
+document
+.querySelector(
+`[name="${field}"]`
+)
+.oninput=
+
+function(){
+
+this.style.borderColor=
+
+"#dbe7ff";
+
+};
 
 alert(
 
