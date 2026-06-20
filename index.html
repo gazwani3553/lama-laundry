@@ -420,80 +420,17 @@ color:#ff3b30;
 margin-left:8px;
 "
 
-<label>
-
-<label>
-
-<i
-class="fa-solid fa-location-dot"
-
-style="
-color:#ff3b30;
-margin-left:8px;
-"
-
 > </i>
 
 العنوان
-
-</label>
-
+<label>
 <input
-
 type="text"
-
 name="address"
-
 placeholder="اكتب العنوان"
-
 required
 
 >
-
-<button
-
-type="button"
-
-onclick="getLocation()"
-
-style="
-
-width:100%;
-
-height:52px;
-
-margin-top:8px;
-
-background:
-
-linear-gradient(
-135deg,
-#1677ea,
-#2f73ff
-);
-
-color:white;
-
-border:none;
-
-border-radius:16px;
-
-font-size:16px;
-
-font-weight:bold;
-
-"
-
->
-
-📍 تحديد موقعي الحالي
-
-</button>
-
-
-
-
- >
 
 <label>
 
@@ -505,14 +442,14 @@ color:#1677ea;
 margin-left:8px;
 "
 
- >
+> </i>
 
 رقم الشقة / رقم الدور
 <label>
 <input
 type="text"
 name="unit"
-placeholder="اكتب رقم الدور ورقم الشقة"
+placeholder="اكتب رقم الشقة / الدور"
 required
 </label>
 
@@ -862,119 +799,8 @@ id="ok"
 <script>
 
 let orderId="";
-function getLocation(){
-
-if(
-
-navigator.geolocation
-
-){
-
-navigator
-.geolocation
-.getCurrentPosition(
-
-function(position){
-
-let lat=
-
-position.coords.latitude;
-
-let lng=
-
-position.coords.longitude;
-
-document
-.querySelector(
-'[name=address]'
-)
-.value=
-
-`https://maps.google.com/?q=${lat},${lng}`;
-
-},
-
-function(){
-
-alert(
-
-"⚠️ تعذر الحصول على الموقع"
-
-);
-
-}
-
-);
-
-}
-
-else{
-
-alert(
-
-"⚠️ الجهاز لا يدعم الموقع"
-
-);
-
-}
-
-}
 
 function sendWhatsApp(){
-let requiredFields=[
-
-'name',
-
-'phone',
-
-'address',
-
-'unit',
-
-'speed',
-
-'service',
-
-'delivery',
-
-'date',
-
-'time'
-
-];
-
-for(
-
-let field of requiredFields
-
-){
-
-let value=
-
-document
-.querySelector(
-`[name="${field}"]`
-)
-.value
-.trim();
-
-if(
-
-!value
-
-){
-
-alert(
-
-"⚠️ يرجى تعبئة جميع الحقول قبل إرسال الطلب"
-
-);
-
-return;
-
-}
-
-}
 
 orderId=
 "LM-"+
