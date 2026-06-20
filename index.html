@@ -838,6 +838,63 @@ id="ok"
 <script>
 
 let orderId="";
+function getLocation(){
+
+if(
+
+navigator.geolocation
+
+){
+
+navigator
+.geolocation
+.getCurrentPosition(
+
+function(position){
+
+let lat=
+
+position.coords.latitude;
+
+let lng=
+
+position.coords.longitude;
+
+document
+.querySelector(
+'[name=address]'
+)
+.value=
+
+`https://maps.google.com/?q=${lat},${lng}`;
+
+},
+
+function(){
+
+alert(
+
+"⚠️ تعذر الحصول على الموقع"
+
+);
+
+}
+
+);
+
+}
+
+else{
+
+alert(
+
+"⚠️ الجهاز لا يدعم الموقع"
+
+);
+
+}
+
+}
 
 function sendWhatsApp(){
 let requiredFields=[
