@@ -959,18 +959,9 @@ document
 .querySelector(
 `[name="${field}"]`
 )
-.style.border=
+.style.borderColor=
 
-
-"2px solid #ff3b30";
-
-document
-.querySelector(
-`[name="${field}"]`
-)
-.style.background=
-
-"#fff1f1";
+"#ff3b30";
 
 alert(
 
@@ -978,10 +969,16 @@ alert(
 
 );
 
+document
+.querySelector(
+`[name="${field}"]`
+)
+.focus();
+
 return;
 
 }
-}
+
 
 }
 
