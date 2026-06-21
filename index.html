@@ -565,253 +565,64 @@ margin-left:8px;
 
 </label>
 
-<label>
-
-🧺 الصنف
-
-</label>
-
 <select
 name="service"
+required
 
 >
 
 <option value="">
-
 اختر الصنف
-
 </option>
 
-<option value="ثوب|8|5|12">
+<option>ثوب </option>
 
-ثوب
+<option>شماغ </option>
 
-</option>
-<hr>
+<option>غترة </option>
 
-<label>
+<option>قميص </option>
 
-🧺 صنف إضافي (اختياري)
+<option>فنيلة ملون </option>
 
-</label>
+<option>فنيلة داخلي </option>
 
-<select
-name="service2"
+<option>بوكسر </option>
 
->
+ <option>سروال طويل </option>
 
-<option>
+ <option>منشفة </option>
 
-لا يوجد
+ <option>إحرام </option>
 
-</option>
+ <option>فوطة </option>
 
-<option>
+ <option>مشلح </option>
 
-ثوب
+  <option>بجامة </option>
 
-</option>
+  <option>جاكيت </option>
 
-<option>
+  <option>بالطو </option>
 
-شماغ
+  <option>شرشف صغير </option>
 
-</option>
+  <option>شرشف كبير</option>
 
-<option>
+  <option>لحاف </option>
 
-فستان
+  <option>سجادة </option>
 
-</option>
+   <option>فستان </option>
 
+   <option>بدلة عسكرية </option>
+
+  <option>بدلة أطفال </option>
+
+  <option>حذاء جلد  </option>
+
+  <option>حذاء رياضي  </option>
 </select>
-
-<select
-name="service_type2"
-<button
-
-type="button"
-
-id="addItem"
-
-style="
-background:#1677ea;
-color:white;
-margin-top:8px;
-height:55px;
-"
-
->
-
-➕ إضافة الصنف
-
-</button>
-
-<div
-
-id="cart"
-
-style="
-margin-top:15px;
-padding:15px;
-background:#f8fbff;
-border-radius:16px;
-display:none;
-"
-
->
-
-<h3>
-
-🛒 طلبي
-
-</h3>
-
-<div id="items"></div>
-
-<br>
-
-<b>
-
-الإجمالي:
-
-<span id="total">
-
-0
-
-</span>
-
-ر.س
-
-</b>
-
-</div>
-
->
-
-<option>
-
-غسيل
-
-</option>
-
-<option>
-
-كوي
-
-</option>
-
-<option>
-
-غسيل وكوي
-
-</option>
-
-</select>
-
-<input
-
-type="number"
-
-name="qty2"
-
-placeholder="العدد"
-
-min="1"
-
->
-
-<option value="شماغ|5|3|7">
-
-شماغ
-
-</option>
-
-<option value="فستان|15|10|22">
-
-فستان
-
-</option>
-
-</select>
-
-<label>
-
-⚙️ الخدمة
-
-</label>
-
-<select
-name="service_type"
-
->
-
-<option>
-
-غسيل
-
-</option>
-
-<option>
-
-كوي
-
-</option>
-
-<option>
-
-غسيل وكوي
-
-</option>
-
-</select>
-
-<label>
-
-🔢 العدد
-
-</label>
-
-<input
-
-type="number"
-
-name="qty"
-
-value="1"
-
-min="1"
-
->
-
-<label>
-
-✍️ أو اكتب صنف غير موجود
-
-</label>
-
-<input
-
-type="text"
-
-name="other_item"
-
-placeholder="مثال: شنطة - جاكيت شتوي - قطعة أخرى"
-
->
-
-<div
-style="
-font-size:13px;
-color:#ff9500;
-margin-top:5px;
-margin-bottom:15px;
-"
->
-
-ℹ️ الأصناف غير المدرجة يتم تسعيرها بعد مراجعة الطلب
-
-</div>
 
 <label>
 
@@ -1163,61 +974,6 @@ alert(
 );
 
 }
-
-}
-let total=0;
-
-document
-.getElementById(
-"addItem"
-)
-
-.onclick=
-
-function(){
-
-let item=
-
-document
-.querySelector(
-'[name=service]'
-)
-.value;
-
-if(
-
-!item
-
-){
-
-alert(
-"اختر الصنف أولاً"
-);
-
-return;
-
-}
-
-document
-.getElementById(
-"cart"
-)
-.style.display=
-
-"block";
-
-document
-.getElementById(
-"items"
-)
-.innerHTML
-
-+=
-
-"<div>🧺 "
-+
-item+
-"</div>";
 
 }
 
