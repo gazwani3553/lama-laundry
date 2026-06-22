@@ -1258,14 +1258,35 @@ let text=
 🏠 ${document.querySelector('[name=unit]').value}
 
 ⚡ ${document.querySelector('[name=speed]').value}
-
 🧺 الأصناف:
 
-${orders.join('\n')}
+${
+orders.length
 
-🔢 العدد:
-${document.querySelector('[name=qty]').value}
+?
 
+orders.join("\n")
+
+:
+
+document
+.querySelector(
+'[name=service]'
+)
+.value
+
+*
+
+" × "
+
+*
+
+document
+.querySelector(
+'[name=qty]'
+)
+.value
+}
 
 🚚 ${document.querySelector('[name=delivery]').value}
 
