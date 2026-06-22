@@ -11,7 +11,7 @@
 <link rel="icon" href="logo.png">
 <meta name="theme-color" content="#1677ea">
 <link
- rel="apple-touch-icon"
+ rel="apple-touch-icon" 
 href="app-icon.png"> 
  <link
 rel="stylesheet"
@@ -1087,12 +1087,18 @@ document
 
 orders
 .map(
-x=>
-"<div>"+x+"</div>"
+(x,i)=>
+
+"<div style='display:flex;justify-content:space-between;padding:8px'>" +
+
+x +
+
+"<span style='cursor:pointer;color:#ff3b30' onclick='orders.splice("+i+",1);this.parentElement.remove();if(orders.length==0)document.getElementById(\"cart\").style.display=\"none\";'>❌</span></div>"
+
 )
+
 .join("");
 
-};
 
 function getLocation(){
 
