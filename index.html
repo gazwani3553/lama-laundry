@@ -1242,6 +1242,43 @@ Math.floor(
 1000+
 Math.random()*9000
 );
+let selectedItems="";
+
+if(
+
+orders.length>0
+
+){
+
+selectedItems=
+
+orders.join("\n");
+
+}
+
+else{
+
+selectedItems=
+
+document
+.querySelector(
+'[name=service]'
+)
+.value
+
+*
+
+" × "
+
+*
+
+document
+.querySelector(
+'[name=qty]'
+)
+.value;
+
+}
 
 let text=
 
@@ -1260,33 +1297,7 @@ let text=
 ⚡ ${document.querySelector('[name=speed]').value}
 🧺 الأصناف:
 
-${
-orders.length
-
-?
-
-orders.join("\n")
-
-:
-
-document
-.querySelector(
-'[name=service]'
-)
-.value
-
-*
-
-" × "
-
-*
-
-document
-.querySelector(
-'[name=qty]'
-)
-.value
-}
+${selectedItems}
 
 🚚 ${document.querySelector('[name=delivery]').value}
 
