@@ -1153,6 +1153,22 @@ alert(
 }
 
 function sendWhatsApp(){
+ if(
+
+orders.length===0
+
+){
+
+alert(
+
+"🧺 يرجى الضغط على (➕ إضافة للطلب) بعد اختيار الصنف وعدد القطع"
+
+);
+
+return;
+
+}
+
 let requiredFields=[
 
 'name',
