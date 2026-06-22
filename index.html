@@ -1297,7 +1297,30 @@ let text=
 ⚡ ${document.querySelector('[name=speed]').value}
 🧺 الأصناف:
 
-${selectedItems}
+${
+orders.length>0
+
+?
+
+orders.join("\n")
+
+:
+
+document.querySelector(
+'[name=service]'
+).value
+
+*
+
+" × "
+
+*
+
+document.querySelector(
+'[name=qty]'
+).value
+}
+
 
 🚚 ${document.querySelector('[name=delivery]').value}
 
@@ -1314,7 +1337,24 @@ if(
 
 👤 ${document.querySelector('[name=name]').value}
 
-🧼 ${document.querySelector('[name=service]').value}
+🧺
+
+${
+
+orders.length>0
+
+?
+
+orders.join("\n")
+
+:
+
+document.querySelector(
+'[name=service]'
+).value
+
+}
+
 
 🚚 ${document.querySelector('[name=delivery]').value}
 
