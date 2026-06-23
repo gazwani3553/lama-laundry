@@ -1,6 +1,6 @@
 <!DOCTYPE html> 
 
-<html lang="ar" dir="rtl"> 
+<html lang="ar" dir="rtl">  
 
 <head>
 <meta charset="UTF-8"> 
@@ -1086,13 +1086,24 @@ document
 .innerHTML=
 
 orders
-.map(
-x=>
-"<div>"+x+"</div>"
-)
-.join("");
 
+.map(
+
+(x,i)=>
+
+"<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:8px'>" +
+
+"<span>"+x+"</span>" +
+
+"<span style='color:#ff3b30;cursor:pointer;font-weight:bold' onclick='deleteItem("+i+")'>❌</span>" +
+
+"</div>"
+
+)
+
+.join("");
 };
+
 
 function getLocation(){
 
