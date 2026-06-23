@@ -1093,67 +1093,31 @@ document
 .value;
 
 
-let price=0;
+let serviceType=
 
-if(
-item==="ثوب"
-){
-
-if(
 service.includes(
 "غسيل"
 )
-)
-price=8;
 
-if(
-service.includes(
-"كوي"
-)
-)
-price=6;
+?
 
-}
-
-if(
-item==="شماغ"
-){
-
-if(
-service.includes(
 "غسيل"
-)
-)
-price=5;
 
-if(
-service.includes(
-"كوي"
-)
-)
-price=4;
+:
 
-}
+"كوي";
 
-if(
-item==="فستان"
-){
+let price=
 
-if(
-service.includes(
-"غسيل"
-)
-)
-price=18;
+prices[item]
 
-if(
-service.includes(
-"كوي"
-)
-)
-price=12;
+?
 
-}
+prices[item][serviceType]
+
+:
+
+0;
 
 orders.push(
 
