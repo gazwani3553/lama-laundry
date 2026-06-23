@@ -1085,6 +1085,36 @@ document
 )
 .value;
 
+let service=
+
+document
+.querySelector(
+'[name=speed]'
+)
+.value;
+
+if(
+
+!service
+
+){
+
+alert(
+
+"⚡ اختر نوع الخدمة أولاً"
+
+);
+
+document
+.querySelector(
+'[name=speed]'
+)
+.focus();
+
+return;
+
+}
+
 if(
 
 !item
@@ -1092,8 +1122,16 @@ if(
 ){
 
 alert(
-"اختر الصنف"
+
+"🧺 اختر الصنف"
+
 );
+
+document
+.querySelector(
+'[name=service]'
+)
+.focus();
 
 return;
 
@@ -1108,7 +1146,7 @@ document
 .value;
 
 
-let price=
+let price= 
 
 prices[item]
 
