@@ -1089,49 +1089,14 @@ orders
 
 .map(
 
-(x,i)=>
+(x)=>
 
-"<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:8px'>" +
-
-"<span>"+x+"</span>" +
-
-"<button type='button'
-
-onclick='deleteItem("+i+")'
-
-style='
-
-width:34px;
-
-height:34px;
-
-padding:0;
-
-background:#fff0f0;
-
-color:#ff3b30;
-
-border:none;
-
-border-radius:10px;
-
-font-size:18px;
-
-cursor:pointer;
-
-'
-
->
-
-❌
-
-</button>"
-
-"</div>"
+"<div>"+x+"</div>"
 
 )
 
 .join("");
+
 };
 
 
