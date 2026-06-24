@@ -1137,6 +1137,11 @@ prices[item]?.[service]
 );
 
 
+let total=
+
+price*
+qty;
+
 orders.push(
 
 "⚡ "+
@@ -1153,20 +1158,12 @@ qty+
 
 " — "+
 
-(
-Number(price)
-
-+
-
-Number(qty)
-
-)
-
-+
+total+
 
 " ريال"
 
 );
+
 
 
 document
