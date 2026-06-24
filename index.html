@@ -1099,7 +1099,44 @@ document
 '[name=qty]'
 )
 .value;
+let sum=0;
 
+for(
+
+let row of orders
+
+){
+
+let match=
+
+row.match(
+/(\d+)\sريال/
+);
+
+if(
+match
+){
+
+sum+=
+Number(
+match[1]
+);
+
+}
+
+}
+
+document
+.getElementById(
+"total"
+)
+.innerHTML=
+
+"💰 الإجمالي: "+
+
+sum+
+
+" ريال";
 let service=
 
 document
