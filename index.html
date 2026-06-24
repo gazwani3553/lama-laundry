@@ -1,6 +1,6 @@
 <!DOCTYPE html> 
 
-<html lang="ar" dir="rtl">  
+<html lang="ar" dir="rtl">   
 
 <head>
 <meta charset="UTF-8"> 
@@ -1147,6 +1147,14 @@ price
 
 let total=
 
+item==="أخرى"
+
+?
+
+"يتم تحديد السعر بعد الفرز"
+
+:
+
 price*
 qty;
 
@@ -1168,9 +1176,19 @@ qty+
 
 total+
 
+(
+
+item==="أخرى"
+
+?
+
+""
+
+:
+
 " ريال"
 
-);
+)
 
 
 
