@@ -2,11 +2,11 @@
 
 <html lang="ar" dir="rtl">  
 
-<head> 
+<head>
 <meta charset="UTF-8"> 
 <meta name="viewport" content="width=device-width,initial-scale=1"> 
 
-<title>مغاسل لمى الذكية</title>   
+<title>مغاسل لمى الذكية</title>  
 
 <link rel="icon" href="logo.png">
 <meta name="theme-color" content="#1677ea"> 
@@ -564,7 +564,7 @@ margin-left:8px;
 قائمة الأصناف <span style="color:#ff3b30;">*</span>
 
 </label>
-<option>أخرى</option>
+
 <select
 name="service"
 required
@@ -623,7 +623,7 @@ required
 
   <option>حذاء رياضي  </option>
 
-  <option>أخرى </option>
+ <option>أخرى  </option>
 </select>
 
 
@@ -1147,28 +1147,9 @@ price
 
 let total=
 
-item==="أخرى"
-
-?
-
-"يحدد بعد الفرز"
-
-:
-
 price*
 qty;
 
- console.log(
-"الصنف:",
-item,
-"الخدمة:",
-service,
-"السعر:",
-price,
-"الإجمالي:",
-total
-);
- 
 orders.push(
 
 "⚡ "+
@@ -1185,15 +1166,11 @@ qty+
 
 " — "+
 
-item==="أخرى"
+total+
 
-?
+" ريال"
 
-"يحدد السعر بعد الفرز"
-
-:
-
-total+" ريال"
+);
 
 
 
