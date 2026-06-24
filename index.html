@@ -9,7 +9,7 @@
 <title>مغاسل لمى الذكية</title>    
 
 <link rel="icon" href="logo.png">
-<meta name="theme-color" content="#1677ea">  
+<meta name="theme-color" content="#1677ea">   
 <link 
  rel="apple-touch-icon"   
 href="app-icon.png">   
@@ -1429,6 +1429,46 @@ document
 sum+
 
 " ريال";
+  let qtyTotal=0;
+
+orders.forEach(
+
+row=>{
+
+let match=
+
+row.match(
+
+/×\s*(\d+)/
+
+);
+
+if(
+
+match
+
+){
+
+qtyTotal+=
+Number(
+match[1]
+);
+
+}
+
+}
+
+);
+
+document
+.getElementById(
+"qtyTotal"
+)
+.innerHTML=
+
+"🧺 عدد القطع: "+
+
+qtyTotal;
 document
 .getElementById(
 "items"
