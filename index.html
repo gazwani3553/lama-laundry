@@ -6,7 +6,7 @@
 <meta charset="UTF-8"> 
 <meta name="viewport" content="width=device-width,initial-scale=1"> 
 
-<title>مغاسل لمى الذكية</title>  
+<title>مغاسل لمى الذكية</title>   
 
 <link rel="icon" href="logo.png">
 <meta name="theme-color" content="#1677ea"> 
@@ -564,7 +564,7 @@ margin-left:8px;
 قائمة الأصناف <span style="color:#ff3b30;">*</span>
 
 </label>
-
+<option>أخرى</option>
 <select
 name="service"
 required
@@ -1145,6 +1145,14 @@ price
 
 let total=
 
+item==="أخرى"
+
+?
+
+"يحدد بعد الفرز"
+
+:
+
 price*
 qty;
 
@@ -1175,11 +1183,15 @@ qty+
 
 " — "+
 
-total+
+item==="أخرى"
 
-" ريال"
+?
 
-);
+"يحدد السعر بعد الفرز"
+
+:
+
+total+" ريال"
 
 
 
