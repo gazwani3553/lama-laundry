@@ -1135,9 +1135,11 @@ prices[item][service]
 
 orders.push(
 
+"⚡ "+
+
 service+
 
-" | "+
+" | 🧺 "+
 
 item+
 
@@ -1148,8 +1150,12 @@ qty+
 " — "+
 
 (
-price*
+Number(price)
+
+*
+
 Number(qty)
+
 )
 
 *
@@ -1157,7 +1163,6 @@ Number(qty)
 " ريال"
 
 );
-
 
 
 document
@@ -1494,7 +1499,7 @@ alert(
 
 
 window.open(
-"https://wa.me/966534043553?text="
+"https://wa.me/966534043553?text=" 
 +
 encodeURIComponent(text),
 "_blank"
