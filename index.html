@@ -4,7 +4,7 @@
 
 <head>
 <meta charset="UTF-8"> 
-<meta name="viewport" content="width=device-width,initial-scale=1">    
+<meta name="viewport" content="width=device-width,initial-scale=1">     
   
 <title>مغاسل لمى الذكية</title>    
 
@@ -1267,7 +1267,7 @@ document
 sum+
 
 " ريال";
- let qtyTotal=0;
+let qtyTotal=0;
 
 orders.forEach(
 
@@ -1307,7 +1307,6 @@ document
 "🧺 عدد القطع: "+
 
 qtyTotal;
- 
 document
 .getElementById( 
 "items"
@@ -1377,7 +1376,13 @@ document
 .innerHTML=
 
 "💰 الإجمالي: 0 ريال";
+document
+.getElementById(
+"qtyTotal"
+)
+.innerHTML=
 
+"🧺 عدد القطع: 0";
 return;
 
 }
