@@ -16,7 +16,7 @@ href="app-icon.png">
  <link
 rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-> 
+>  
 
 <style>  
  
@@ -1099,45 +1099,51 @@ document
 '[name=qty]'
 )
 .value;
-let sum=
+let sum=0;
 
-orders
+orders.forEach(
 
-.reduce(
-
-(total,row)=>{
+row=>{
 
 let match=
 
 row.match(
 
-/(\d+)\sريال/
+/(\d+)/g
 
 );
 
-return
-
-total+
-
-(
+if(
 
 match
 
-?
+){
+
+let value=
 
 Number(
-match[1]
-)
 
-:
-
-0
+match[
+match.length-1
+]
 
 );
 
-},
+if(
 
-0
+!isNaN(
+value
+)
+
+){
+
+sum+=value;
+
+}
+
+}
+
+}
 
 );
 
