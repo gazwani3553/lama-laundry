@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#1677ea"> 
 <link 
  rel="apple-touch-icon"  
-href="app-icon.png">  
+href="app-icon.png">   
  <link
 rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -1126,16 +1126,22 @@ return;
 
 let price=
 
-Number(
+prices[
+item.trim()
+]
 
-prices[item]?.[service]
+?.[
+service.trim()
+]
 
-||
+??
 
-0
-
+0;
+ console.log(
+item,
+service,
+price
 );
-
 
 let total=
 
