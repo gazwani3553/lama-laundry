@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8"> 
 <meta name="viewport" content="width=device-width,initial-scale=1"> 
-
+ 
 <title>مغاسل لمى الذكية</title>  
 
 <link rel="icon" href="logo.png">
@@ -1099,32 +1099,47 @@ document
 '[name=qty]'
 )
 .value;
-let sum=0;
+let sum=
 
-for(
+orders
 
-let row of orders
+.reduce(
 
-){
+(total,row)=>{
 
 let match=
 
 row.match(
+
 /(\d+)\sريال/
+
 );
 
-if(
-match
-){
+return
 
-sum+=
+total+
+
+(
+
+match
+
+?
+
 Number(
 match[1]
+)
+
+:
+
+0
+
 );
 
-}
+},
 
-}
+0
+
+);
 
 document
 .getElementById(
