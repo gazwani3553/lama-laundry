@@ -4,7 +4,7 @@
 
 <head>
 <meta charset="UTF-8"> 
-<meta name="viewport" content="width=device-width,initial-scale=1">  
+<meta name="viewport" content="width=device-width,initial-scale=1">   
  
 <title>مغاسل لمى الذكية</title>   
 
@@ -1298,7 +1298,6 @@ orders.splice(
 index,
 1
 );
-
 if(
 orders.length===0
 ){
@@ -1316,10 +1315,58 @@ document
 )
 .innerHTML="";
 
+document
+.getElementById(
+"total"
+)
+.innerHTML=
+
+"💰 الإجمالي: 0 ريال";
+
 return;
 
 }
 
+ let sum=0;
+
+orders.forEach(
+
+row=>{
+
+let match=
+
+row.match(
+
+/—\s*(\d+)\s*ريال/
+
+);
+
+if(
+match
+){
+
+sum+=
+Number(
+match[1]
+);
+
+}
+
+}
+
+);
+
+document
+.getElementById(
+"total"
+)
+.innerHTML=
+
+"💰 الإجمالي: "+
+
+sum+
+
+" ريال";
 document
 .getElementById(
 "items"
