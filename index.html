@@ -3,7 +3,7 @@
 <html lang="ar" dir="rtl">   
 
 <head>
-<meta charset="UTF-8">   
+<meta charset="UTF-8">    
 <meta name="viewport" content="width=device-width,initial-scale=1">        
   
 <title>مغاسل لمى الذكية</title>    
@@ -841,8 +841,8 @@ margin-left:8px;
 <input
 type="date"
 name="date"
+id="pickupDate"
 required
-
 >
 
 <label>
@@ -1658,7 +1658,21 @@ alert(
 }
 
 }
+document
+.getElementById(
+"pickupDate"
+)
+.min=
 
+new Date()
+
+.toISOString()
+
+.split(
+"T"
+)
+
+[0];
 function sendWhatsApp(){
  if(
 
