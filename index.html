@@ -1583,65 +1583,7 @@ orders
 
 .join("");
 
-document
-.addEventListener(
 
-"DOMContentLoaded",
-
-function(){
-
-let service=
-
-document.querySelector(
-'[name=service]'
-);
-
-let box=
-
-document.getElementById(
-"shemaghOptions"
-);
-
-if(
-
-service
-
-&&
-
-box
-
-){
-
-service.addEventListener(
-
-"change",
-
-function(){
-
-box.style.display=
-
-this.value
-.trim()
-
-===
-
-"شماغ"
-
-?
-
-"block"
-
-:
-
-"none";
-
-}
-
-);
-
-}
-
-}
 
 function removeItem(index){
 
@@ -1790,7 +1732,66 @@ orders
 
 }
 
+setTimeout(
 
+()=>{
+
+let service=
+
+document.querySelector(
+'[name=service]'
+);
+
+if(
+
+service
+
+){
+
+service.onchange=
+
+function(){
+
+let box=
+
+document.getElementById(
+"shemaghOptions"
+);
+
+if(
+
+box
+
+){
+
+box.style.display=
+
+this.value
+.trim()
+
+===
+
+"شماغ"
+
+?
+
+"block"
+
+:
+
+"none";
+
+}
+
+};
+
+}
+
+},
+
+300
+
+);
 function getLocation(){
 
 if(
