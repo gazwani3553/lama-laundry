@@ -18,7 +18,7 @@ rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 >  
  
-<style>  
+<style>   
  
 body{
 margin:0;
@@ -1789,7 +1789,7 @@ return;
 
 }
  
-  let selectedDate=
+let selectedDate=
 
 document
 .querySelector(
@@ -1841,6 +1841,36 @@ now.getDate()
 "0"
 );
 
+/* منع تاريخ سابق */
+
+if(
+
+selectedDate
+
+<
+
+today
+
+){
+
+alert(
+
+"📅 لا يمكن اختيار تاريخ سابق"
+
+);
+
+document
+.querySelector(
+'[name=date]'
+)
+.focus();
+
+return;
+
+}
+
+/* منع وقت سابق لنفس اليوم */
+
 let currentTime=
 
 String(
@@ -1867,19 +1897,11 @@ now.getMinutes()
 
 if(
 
-selectedDate
-
-===
-
-today
+selectedDate===today
 
 &&
 
-selectedTime
-
-<
-
-currentTime
+selectedTime<currentTime
 
 ){
 
@@ -1888,15 +1910,16 @@ alert(
 "⏰ لا يمكن اختيار وقت سابق للوقت الحالي"
 
 );
+
 document
 .querySelector(
 '[name=time]'
 )
 .focus();
+
 return;
 
 }
-
 orderId=
 "LM-"+
 Math.floor(
