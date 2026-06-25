@@ -3,7 +3,7 @@
 <html lang="ar" dir="rtl">   
 
 <head>
-<meta charset="UTF-8">  
+<meta charset="UTF-8">   
 <meta name="viewport" content="width=device-width,initial-scale=1">       
   
 <title>مغاسل لمى الذكية</title>    
@@ -1652,7 +1652,38 @@ return;
 
 
 }
+let phone=
 
+document
+.querySelector(
+'[name=phone]'
+)
+.value
+.trim();
+
+if(
+
+!/^05\d{8}$/.test(
+phone
+)
+
+){
+
+alert(
+
+"📱 يرجى إدخال رقم جوال صحيح يبدأ بـ 05 ويتكون من 10 أرقام"
+
+);
+
+document
+.querySelector(
+'[name=phone]'
+)
+.focus();
+
+return;
+
+}
 orderId=
 "LM-"+
 Math.floor(
