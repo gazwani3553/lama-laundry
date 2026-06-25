@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">    
 <meta name="viewport" content="width=device-width,initial-scale=1">         
-  
+   
 <title>مغاسل لمى الذكية</title>    
  
 <link rel="icon" href="logo.png">
@@ -1823,6 +1823,87 @@ alert(
 document
 .querySelector(
 '[name=date]'
+)
+.focus();
+
+return;
+
+}
+  let selectedDate=
+
+document
+.querySelector(
+'[name=date]'
+)
+.value;
+
+let selectedTime=
+
+document
+.querySelector(
+'[name=time]'
+)
+.value;
+
+let now=
+
+new Date();
+
+let today=
+
+now
+
+.toLocaleDateString(
+'en-CA'
+);
+
+let currentTime=
+
+String(
+now.getHours()
+)
+
+.padStart(
+2,
+"0"
+)
+
++
+
+":"+
+
+String(
+now.getMinutes()
+)
+
+.padStart(
+2,
+"0"
+);
+
+if(
+
+selectedDate===today
+
+&&
+
+selectedTime
+
+<
+
+currentTime
+
+){
+
+alert(
+
+"⏰ لا يمكن اختيار وقت سابق للوقت الحالي"
+
+);
+
+document
+.querySelector(
+'[name=time]'
 )
 .focus();
 
