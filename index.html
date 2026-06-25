@@ -626,7 +626,70 @@ required
  <option>أخرى  </option>
 </select>
 
+<div
+id="shemaghOptions"
 
+style="
+display:none;
+margin-top:15px;
+"
+>
+
+<label>
+
+👔 نوع كوي الشماغ
+
+</label>
+
+<select
+name="shemaghType"
+>
+
+<option value="">
+اختر النوع
+</option>
+
+<option>
+مرزام
+</option>
+
+<option>
+بدون مرزام
+</option>
+
+</select>
+
+<br><br>
+
+<label>
+
+🧴 النشا
+
+</label>
+
+<select
+name="starch"
+>
+
+<option>
+بدون نشا
+</option>
+
+<option>
+خفيف
+</option>
+
+<option>
+متوسط
+</option>
+
+<option>
+ثقيل
+</option>
+
+</select>
+
+</div>
 
 
 
@@ -1521,20 +1584,52 @@ orders
 .join("");
 
 
-document
-.querySelector(
-'[name=service]'
-)
-.selectedIndex=0;
+let serviceField=
 
-document
-.querySelector(
-'[name=qty]'
-)
-.value=1;
+document.querySelector(
+'[name=service]'
+);
+
+if(
+
+serviceField
+
+){
+
+serviceField.onchange=
+
+function(){
+
+let box=
+
+document.getElementById(
+"shemaghOptions"
+);
+
+if(
+
+box
+
+){
+
+box.style.display=
+
+this.value
+==="شماغ"
+
+?
+
+"block"
+
+:
+
+"none";
+
+}
 
 };
 
+}
 function removeItem(index){
 
 orders.splice(
