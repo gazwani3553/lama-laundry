@@ -1658,13 +1658,27 @@ alert(
 }
 
 }
+let today=
+
+new Date();
+
+today.setMinutes(
+
+today.getMinutes()
+
+-
+
+today.getTimezoneOffset()
+
+);
+
 document
 .getElementById(
 "pickupDate"
 )
 .min=
 
-new Date()
+today
 
 .toISOString()
 
