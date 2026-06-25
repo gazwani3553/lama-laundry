@@ -951,8 +951,59 @@ color:#ff3b30;
 
 
 
+<div
+id="invoicePreview"
 
-</a>
+style="
+display:none;
+margin-top:20px;
+background:white;
+border-radius:24px;
+padding:20px;
+border:2px solid #dbe7ff;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+"
+>
+
+<div
+id="invoiceContent"
+></div>
+
+</div>
+
+<button
+type="button"
+
+onclick="showInvoice()"
+
+style="
+width:100%;
+height:60px;
+
+background:
+linear-gradient(
+135deg,
+#1677ea,
+#2f73ff
+);
+
+color:white;
+
+border:none;
+
+border-radius:18px;
+
+font-size:18px;
+
+margin-bottom:15px;
+"
+
+>
+
+🧾 معاينة الفاتورة
+
+</button>
+
 <button
 class="whatsapp"
 onclick="sendWhatsApp()"
@@ -1656,6 +1707,128 @@ alert(
 );
 
 }
+
+}
+   function showInvoice(){
+
+document
+.getElementById(
+"invoicePreview"
+)
+.style.display=
+"block";
+
+document
+.getElementById(
+"invoiceContent"
+)
+.innerHTML=
+`
+<div
+style="
+background:
+linear-gradient(
+180deg,
+#ffffff,
+#f7fbff
+);
+
+padding:20px;
+
+border-radius:20px;
+"
+
+>
+
+<div
+style="
+text-align:center;
+font-size:28px;
+font-weight:bold;
+color:#1677ea;
+"
+>
+
+🧺 مغاسل لمى الذكية
+
+</div>
+
+<div
+style="
+text-align:center;
+
+margin-top:8px;
+
+color:#64748b;
+"
+>
+
+فاتورة الطلب
+
+</div>
+
+<hr>
+
+📦 رقم الطلب:
+${orderId||"جديد"}
+
+<br><br>
+
+👤 ${document.querySelector('[name=name]').value}
+
+<br>
+
+📱 ${document.querySelector('[name=phone]').value}
+
+<hr>
+
+⚡ ${document.querySelector('[name=speed]').value}
+
+<br><br>
+
+<div
+style="
+background:#f8fbff;
+
+padding:15px;
+
+border-radius:14px;
+
+line-height:2;
+"
+>
+
+${orders.join("<br>")}
+
+</div>
+
+<hr>
+
+${document.getElementById("qtyTotal").innerHTML}
+
+<br>
+
+${document.getElementById("total").innerHTML}
+
+<hr>
+
+🚚 ${document.querySelector('[name=delivery]').value}
+
+<br>
+
+📅 ${document.querySelector('[name=date]').value}
+
+<br>
+
+⏰ ${document.querySelector('[name=time]').value}
+
+<hr>
+
+💙 شكراً لاختياركم
+
+</div>
+
+`;
 
 }
 function sendWhatsApp(){
