@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">              
    
 <title>مغاسل لمى الذكية</title>     
- 
+  
 <link rel="icon" href="logo.png">
 <meta name="theme-color" content="#1677ea">   
 <link 
@@ -1583,7 +1583,7 @@ orders
 
 .join("");
 
-
+};
 
 function removeItem(index){
 
@@ -1732,23 +1732,14 @@ orders
 
 }
 
-setTimeout(
-
-()=>{
-
-let service=
-
-document.querySelector(
+document
+.querySelector(
 '[name=service]'
-);
+)
 
-if(
+.addEventListener(
 
-service
-
-){
-
-service.onchange=
+"change",
 
 function(){
 
@@ -1783,13 +1774,7 @@ this.value
 
 }
 
-};
-
 }
-
-},
-
-300
 
 );
 function getLocation(){
