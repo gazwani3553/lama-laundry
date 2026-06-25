@@ -4,7 +4,7 @@
 
 <head>
 <meta charset="UTF-8">    
-<meta name="viewport" content="width=device-width,initial-scale=1">          
+<meta name="viewport" content="width=device-width,initial-scale=1">           
    
 <title>مغاسل لمى الذكية</title>    
  
@@ -1755,146 +1755,278 @@ document
 )
 .innerHTML=
 `
+
+<div
+style="
+background:#f7fbff;
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 12px 40px rgba(0,0,0,.08);
+font-family:sans-serif;
+"
+
+>
+
 <div
 style="
 background:
 linear-gradient(
-180deg,
-#ffffff,
-#f7fbff
+135deg,
+#1677ea,
+#2f73ff
 );
 
-padding:20px;
+color:white;
 
-border-radius:20px;
+padding:28px;
+
+text-align:center;
 "
 
 >
 
 <div
 style="
-text-align:center;
+font-size:42px;
+"
+>
+
+🧺
+
+</div>
+
+<div
+style="
 font-size:28px;
 font-weight:bold;
-color:#1677ea;
 "
 >
 
-🧺 مغاسل لمى الذكية
+مغاسل لمى الذكية
 
 </div>
 
 <div
 style="
-text-align:center;
-
 margin-top:8px;
-
-color:#64748b;
+opacity:.9;
 "
 >
 
-فاتورة الطلب
+نغسل باحتراف .. نعيدها لك أجمل ✨
 
 </div>
 
-<hr>
+</div>
+
+<div
+style="
+padding:20px;
+"
+
+>
+
+<div
+style="
+background:white;
+
+padding:18px;
+
+border-radius:18px;
+
+margin-bottom:16px;
+"
+
+>
 
 📦 رقم الطلب:
+<b>
 ${orderId||"جديد"}
+</b>
 
 <br><br>
 
-👤 ${document.querySelector('[name=name]').value}
+📅
+${document.querySelector('[name=date]').value}
 
-<br>
+—
 
-📱 ${document.querySelector('[name=phone]').value}
+⏰
+${document.querySelector('[name=time]').value}
 
-<hr>
-
-⚡ ${document.querySelector('[name=speed]').value}
-
-<br><br>
+</div>
 
 <div
 style="
-background:#f8fbff;
+background:white;
 
-padding:15px;
+padding:18px;
 
-border-radius:14px;
+border-radius:18px;
+
+margin-bottom:16px;
 
 line-height:2;
 "
+
 >
+
+👤
+${document.querySelector('[name=name]').value}
+
+<br>
+
+📱
+${document.querySelector('[name=phone]').value}
+
+<br>
+
+📍
+${document.querySelector('[name=address]').value}
+
+<br>
+
+⚡
+${document.querySelector('[name=speed]').value}
+
+</div>
+
+<div
+style="
+background:white;
+
+padding:18px;
+
+border-radius:18px;
+
+margin-bottom:16px;
+"
+
+>
+
+<h3>
+
+🧺 قائمة الأصناف
+
+</h3>
 
 ${orders.join("<br>")}
 
 </div>
 
-<hr>
+<div
+style="
+display:flex;
+
+gap:10px;
+"
+
+>
+
+<div
+style="
+flex:1;
+
+background:#fff;
+
+padding:16px;
+
+border-radius:18px;
+
+text-align:center;
+"
+
+>
 
 ${document.getElementById("qtyTotal").innerHTML}
 
-<br>
+</div>
+
+<div
+style="
+flex:1;
+
+background:#e9fff1;
+
+padding:16px;
+
+border-radius:18px;
+
+text-align:center;
+
+font-weight:bold;
+
+color:#16a34a;
+"
+
+>
 
 ${document.getElementById("total").innerHTML}
 
-<hr>
+</div>
 
-🚚 ${document.querySelector('[name=delivery]').value}
-
-<br>
-
-📅 ${document.querySelector('[name=date]').value}
+</div>
 
 <br>
-
-⏰ ${document.querySelector('[name=time]').value}
-
-<hr>
-
-
-📝 الملاحظات
-
-<br><br>
 
 <div
 style="
 background:#fff7ed;
 
-padding:12px;
+padding:16px;
 
-border-radius:12px;
-
-line-height:1.8;
+border-radius:18px;
 "
 
 >
 
-${
-document
-.querySelector(
-'[name=message]'
-)
-.value
+📝
 
-||
+${document.querySelector('[name=message]').value||
 
-"لا توجد ملاحظات"
-
-}
+"لا توجد ملاحظات"}
 
 </div>
-<hr>
-💙 شكراً لاختياركم
+
+<br>
+
+<div
+style="
+background:
+linear-gradient(
+135deg,
+#1677ea,
+#2f73ff
+);
+
+color:white;
+
+padding:20px;
+
+border-radius:20px;
+
+text-align:center;
+"
+
+>
+
+💙 شكراً لثقتكم بنا
+
+<br>
+
+نسعد بخدمتكم دائماً
+
+</div>
+
+</div>
 
 </div>
 
 `;
 
 }
+
+
    function saveInvoice(){
 
 let invoice=
