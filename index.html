@@ -4,7 +4,7 @@
 
 <head>
 <meta charset="UTF-8">     
-<meta name="viewport" content="width=device-width,initial-scale=1">             
+<meta name="viewport" content="width=device-width,initial-scale=1">              
    
 <title>مغاسل لمى الذكية</title>    
  
@@ -1584,15 +1584,17 @@ orders
 .join("");
 
 document
-.querySelector(
-'[name=service]'
-)
-
 .addEventListener(
 
-"change",
+"DOMContentLoaded",
 
 function(){
+
+let service=
+
+document.querySelector(
+'[name=service]'
+);
 
 let box=
 
@@ -1602,9 +1604,19 @@ document.getElementById(
 
 if(
 
+service
+
+&&
+
 box
 
 ){
+
+service.addEventListener(
+
+"change",
+
+function(){
 
 box.style.display=
 
@@ -1625,10 +1637,12 @@ this.value
 
 }
 
+);
+
 }
 
+}
 );
-};
 function removeItem(index){
 
 orders.splice(
