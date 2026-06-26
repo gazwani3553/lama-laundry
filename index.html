@@ -4,7 +4,7 @@
 
 <head>
 <meta charset="UTF-8">     
-<meta name="viewport" content="width=device-width,initial-scale=1">              
+<meta name="viewport" content="width=device-width,initial-scale=1">               
    
 <title>مغاسل لمى الذكية</title>     
    
@@ -1441,115 +1441,6 @@ document
 .style.display=
 
 "block";
-let sum=0;
-
-orders.forEach(
-
-row=>{
-
-let match=
-
-row.match(
-
-/—\s*(\d+)\s*ريال/
-
-);
-
-if(
-
-match
-
-){
-
-sum+=
-Number(
-match[1]
-);
-
-}
-
-}
-
-);
-
-document
-.getElementById(
-"total"
-) 
-.innerHTML=
-
-"💰 الإجمالي: "+
-
-sum+
-
-" ريال";
-
-let qtyTotal=0;
-
-orders.forEach(
-
-row=>{
-
-let match=
-
-row.match(
-
-/×\s*(\d+)/
-
-);
-
-if(
-
-match
-
-){
-
-qtyTotal+=
-Number(
-match[1]
-);
-
-}
-
-}
-
-);
-
-document
-.getElementById(
-"qtyTotal"
-)
-.innerHTML=
-
-"🧺 عدد القطع: "+
-
-qtyTotal;
-
-document
-.getElementById( 
-"items"
-)
-.innerHTML=
-
-orders
-
-.map(
-
-(x,i)=>
-
-"<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:10px'>" +
-
-"<span>"+x+"</span>" +
-
-"<span onclick='removeItem("+i+")' style='cursor:pointer;color:#ef4444;font-size:20px'>🗑️</span>" +
-
-"</div>"
-
-)
-
-.join("");
-
-};
 
 function removeItem(index){
 
