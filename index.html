@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">              
    
 <title>مغاسل لمى الذكية</title>     
-  
+   
 <link rel="icon" href="logo.png">
 <meta name="theme-color" content="#1677ea">   
 <link 
@@ -1232,242 +1232,208 @@ const prices={
 };
 let orderId="";
 
-let orders=[];
-document
-.getElementById(
-"addItem"
-)
+let orders = [];
+   
+document.getElementById("addItem").onclick = function () {
 
-.onclick=
+    let item = document.querySelector('[name=service]').value.trim();
+    let service = document.querySelector('[name=speed]').value.trim();
+    let qty = Number(document.querySelector('[name=qty]').value);
 
-function(){
+    if (!service) {
+        alert("⚡ اختر نوع الخدمة أولاً");
+        return;
+    }
 
-let item=
+    if (!item) {
+        alert("🧺 اختر الصنف");
+        return;
+    }
 
-document
-.querySelector(
-'[name=service]'
-)
-.value
-.trim();
+    let price = prices[item]?.[service] ?? 0;
 
-let qty=
+    let shemaghType = "";
+    let starch = "";
 
-document
-.querySelector(
-'[name=qty]'
-)
-.value;
+  if(
 
-let service=
-
-document
-.querySelector(
-'[name=speed]'
-)
-.value
-.trim();
-
-
-if(
-
-!service
-
-){
-
-alert( 
-"⚡ اختر نوع الخدمة أولاً"
-);
-
-return;
-
-}
-
-if(
-
-!item
-
-){
-
-alert(
-"🧺 اختر الصنف"
-);
-
-return;
-
-}
-
-let price=
-
-prices[
-item.trim()
-]
-
-?.[
-service.trim()
-]
-
-??
-
-0;
- console.log(
-item,
-service,
-price
-);
-
-let total=
-
-item==="أخرى"
-
-?
-
-"يتم تحديد السعر بعد الفرز"
-
-:
-
-price*
-qty;
-
-let existing=
-
-orders.findIndex(
-
-row=>
-
-row.includes(
-"⚡ "+service
-)
-
-&&
-
-row.includes(
-"🧺 "+item
-)
-
-);
-
-if(
-
-existing!==-1
-
-){
-
-let oldQty=
-
-Number(
-
-orders[
-existing
-]
-
-.match(
-
-/×\s*(\d+)/
-
-)?.[1]
+item==="شماغ"
 
 ||
 
-0
+item==="غترة"
 
-);
+){
 
-let newQty=
+        shemaghType = document.querySelector('[name=shemaghType]').value || "بدون مرزام";
 
-oldQty+
+        starch = document.querySelector('[name=starch]').value || "بدون نشا";
 
-Number(
-qty
-);
+    }
 
-let newTotal=
+    let existing = orders.findIndex(x =>
+        x.item === item &&
+        x.service === service &&
+        x.shemaghType === shemaghType &&
+        x.starch === starch
+    );
 
-item==="أخرى"
+    if (existing !== -1) {
 
-?
+        orders[existing].qty += qty;
+        orders[existing].total = orders[existing].qty * orders[existing].price;
 
-"يتم تحديد السعر بعد الفرز"
+    } else {
 
-:
+        orders.push({
 
-price*
-newQty;
+            item,
 
-orders[
-existing
-]=
+            service,
 
-"⚡ "+
+            qty,
 
-service+
+            price,
 
-" | 🧺 "+
+            total: item === "أخرى"
+                ? "يتم تحديد السعر بعد الفرز"
+                : price * qty,
 
-item+
+            shemaghType,
 
-" × "+
+            starch
 
-newQty+
+        });
 
-" — "+
+    }
 
-newTotal+
+    update();
 
-(
+};
 
-item==="أخرى"
+   function updateCart(){
 
-?
+document.getElementById("cart").style.display="block";
 
-""
+let sum=0;
 
-:
+let qtyTotal=0;
 
-" ريال"
+orders.forEach(item=>{
 
-);
+if(typeof item.total==="number"){
 
-}
-
-else{
-
-orders.push(
-
-"⚡ "+
-
-service+
-
-" | 🧺 "+
-
-item+
-
-" × "+
-
-qty+
-
-" — "+
-
-total+
-
-(
-
-item==="أخرى"
-
-?
-
-""
-
-:
-
-" ريال"
-
-)
-
-);
+sum+=item.total;
 
 }
 
+qtyTotal+=item.qty;
+
+});
+
+document.getElementById("total").innerHTML=
+
+"💰 الإجمالي: "+sum+" ريال";
+
+document.getElementById("qtyTotal").innerHTML=
+
+"🧺 عدد القطع: "+qtyTotal;
+
+document.getElementById("items").innerHTML=
+
+orders.map((row,index)=>`
+
+<div
+style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px;
+margin-bottom:10px;
+background:#f8fbff;
+border-radius:14px;
+">
+
+<div>
+
+<b>🧺 ${row.item}</b>
+
+<br>
+
+⚡ ${row.service}
+${
+
+row.item==="شماغ"
+
+||
+
+row.item==="غترة"
+
+?
+
+`
+
+<br>
+
+👔 ${row.shemaghType}
+
+<br>
+
+🧴 ${row.starch}
+
+`
+
+:
+
+""
+
+}
+
+<br>
+
+🔢 ${row.qty}
+
+</div>
+
+<div>
+
+<b style="color:#16a34a">
+
+${typeof row.total==="number"
+
+?
+
+row.total+" ريال"
+
+:
+
+row.total
+
+}
+
+</b>
+
+<br><br>
+
+<span
+onclick="removeItem(${index})"
+style="
+cursor:pointer;
+font-size:22px;
+color:#ef4444;
+">
+
+🗑️
+
+</span>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
 document
 .getElementById(
 "cart"
@@ -1587,42 +1553,23 @@ orders
 
 function removeItem(index){
 
-orders.splice(
-index,
-1
-);
-if(
-orders.length===0
-){
+orders.splice(index,1);
 
-document
-.getElementById(
-"cart"
-)
-.style.display=
-"none";
+if(orders.length===0){
 
-document
-.getElementById(
-"items"
-)
-.innerHTML="";
+document.getElementById("cart").style.display="none";
 
-document
-.getElementById(
-"total"
-)
-.innerHTML=
+document.getElementById("items").innerHTML="";
 
-"💰 الإجمالي: 0 ريال";
-document
-.getElementById(
-"qtyTotal"
-)
-.innerHTML=
+document.getElementById("total").innerHTML="💰 الإجمالي: 0 ريال";
 
-"🧺 عدد القطع: 0";
+document.getElementById("qtyTotal").innerHTML="🧺 عدد القطع: 0";
+
 return;
+
+}
+
+updateCart();
 
 }
 
@@ -1757,12 +1704,11 @@ box
 
 box.style.display=
 
-this.value
-.trim()
+this.value==="شماغ"
 
-===
+||
 
-"شماغ"
+this.value==="غترة"
 
 ?
 
