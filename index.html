@@ -3,11 +3,11 @@
 <html lang="ar" dir="rtl">    
 
 <head>
-<meta charset="UTF-8">     
-<meta name="viewport" content="width=device-width,initial-scale=1">               
+<meta charset="UTF-8">    
+<meta name="viewport" content="width=device-width,initial-scale=1">             
    
-<title>مغاسل لمى الذكية</title>     
-   
+<title>مغاسل لمى الذكية</title>    
+ 
 <link rel="icon" href="logo.png">
 <meta name="theme-color" content="#1677ea">   
 <link 
@@ -626,70 +626,7 @@ required
  <option>أخرى  </option>
 </select>
 
-<div
-id="shemaghOptions"
 
-style="
-display:none;
-margin-top:15px;
-"
->
-
-<label>
-
-👔 نوع كوي الشماغ
-
-</label>
-
-<select
-name="shemaghType"
->
-
-<option value="">
-اختر النوع
-</option>
-
-<option>
-مرزام
-</option>
-
-<option>
-بدون مرزام
-</option>
-
-</select>
-
-<br><br>
-
-<label>
-
-🧴 النشا
-
-</label>
-
-<select
-name="starch"
->
-
-<option>
-بدون نشا
-</option>
-
-<option>
-خفيف
-</option>
-
-<option>
-متوسط
-</option>
-
-<option>
-ثقيل
-</option>
-
-</select>
-
-</div>
 
 
 
@@ -1232,208 +1169,242 @@ const prices={
 };
 let orderId="";
 
-let orders = [];
-   
-document.getElementById("addItem").onclick = function () {
+let orders=[];
+document
+.getElementById(
+"addItem"
+)
 
-    let item = document.querySelector('[name=service]').value.trim();
-    let service = document.querySelector('[name=speed]').value.trim();
-    let qty = Number(document.querySelector('[name=qty]').value);
+.onclick=
 
-    if (!service) {
-        alert("⚡ اختر نوع الخدمة أولاً");
-        return;
-    }
+function(){
 
-    if (!item) {
-        alert("🧺 اختر الصنف");
-        return;
-    }
+let item=
 
-    let price = prices[item]?.[service] ?? 0;
+document
+.querySelector(
+'[name=service]'
+)
+.value
+.trim();
 
-    let shemaghType = "";
-    let starch = "";
+let qty=
 
-  if(
+document
+.querySelector(
+'[name=qty]'
+)
+.value;
 
-item==="شماغ"
+let service=
 
-||
+document
+.querySelector(
+'[name=speed]'
+)
+.value
+.trim();
 
-item==="غترة"
+
+if(
+
+!service
 
 ){
 
-        shemaghType = document.querySelector('[name=shemaghType]').value || "بدون مرزام";
+alert( 
+"⚡ اختر نوع الخدمة أولاً"
+);
 
-        starch = document.querySelector('[name=starch]').value || "بدون نشا";
-
-    }
-
-    let existing = orders.findIndex(x =>
-        x.item === item &&
-        x.service === service &&
-        x.shemaghType === shemaghType &&
-        x.starch === starch
-    );
-
-    if (existing !== -1) {
-
-        orders[existing].qty += qty;
-        orders[existing].total = orders[existing].qty * orders[existing].price;
-
-    } else {
-
-        orders.push({
-
-            item,
-
-            service,
-
-            qty,
-
-            price,
-
-            total: item === "أخرى"
-                ? "يتم تحديد السعر بعد الفرز"
-                : price * qty,
-
-            shemaghType,
-
-            starch
-
-        });
-
-    }
-
-    update();
-
-};
-
-   function updateCart(){
-
-document.getElementById("cart").style.display="block";
-
-let sum=0;
-
-let qtyTotal=0;
-
-orders.forEach(item=>{
-
-if(typeof item.total==="number"){
-
-sum+=item.total;
+return;
 
 }
 
-qtyTotal+=item.qty;
+if(
 
-});
+!item
 
-document.getElementById("total").innerHTML=
+){
 
-"💰 الإجمالي: "+sum+" ريال";
+alert(
+"🧺 اختر الصنف"
+);
 
-document.getElementById("qtyTotal").innerHTML=
+return;
 
-"🧺 عدد القطع: "+qtyTotal;
+}
 
-document.getElementById("items").innerHTML=
+let price=
 
-orders.map((row,index)=>`
+prices[
+item.trim()
+]
 
-<div
-style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px;
-margin-bottom:10px;
-background:#f8fbff;
-border-radius:14px;
-">
+?.[
+service.trim()
+]
 
-<div>
+??
 
-<b>🧺 ${row.item}</b>
+0;
+ console.log(
+item,
+service,
+price
+);
 
-<br>
+let total=
 
-⚡ ${row.service}
-${
+item==="أخرى"
 
-row.item==="شماغ"
+?
+
+"يتم تحديد السعر بعد الفرز"
+
+:
+
+price*
+qty;
+
+let existing=
+
+orders.findIndex(
+
+row=>
+
+row.includes(
+"⚡ "+service
+)
+
+&&
+
+row.includes(
+"🧺 "+item
+)
+
+);
+
+if(
+
+existing!==-1
+
+){
+
+let oldQty=
+
+Number(
+
+orders[
+existing
+]
+
+.match(
+
+/×\s*(\d+)/
+
+)?.[1]
 
 ||
 
-row.item==="غترة"
+0
+
+);
+
+let newQty=
+
+oldQty+
+
+Number(
+qty
+);
+
+let newTotal=
+
+item==="أخرى"
 
 ?
 
-`
-
-<br>
-
-👔 ${row.shemaghType}
-
-<br>
-
-🧴 ${row.starch}
-
-`
+"يتم تحديد السعر بعد الفرز"
 
 :
+
+price*
+newQty;
+
+orders[
+existing
+]=
+
+"⚡ "+
+
+service+
+
+" | 🧺 "+
+
+item+
+
+" × "+
+
+newQty+
+
+" — "+
+
+newTotal+
+
+(
+
+item==="أخرى"
+
+?
 
 ""
 
+:
+
+" ريال"
+
+);
+
 }
 
-<br>
+else{
 
-🔢 ${row.qty}
+orders.push(
 
-</div>
+"⚡ "+
 
-<div>
+service+
 
-<b style="color:#16a34a">
+" | 🧺 "+
 
-${typeof row.total==="number"
+item+
+
+" × "+
+
+qty+
+
+" — "+
+
+total+
+
+(
+
+item==="أخرى"
 
 ?
 
-row.total+" ريال"
+""
 
 :
 
-row.total
+" ريال"
+
+)
+
+);
 
 }
 
-</b>
-
-<br><br>
-
-<span
-onclick="removeItem(${index})"
-style="
-cursor:pointer;
-font-size:22px;
-color:#ef4444;
-">
-
-🗑️
-
-</span>
-
-</div>
-
-</div>
-
-`).join("");
-
-}
 document
 .getElementById(
 "cart"
@@ -1441,26 +1412,167 @@ document
 .style.display=
 
 "block";
+let sum=0;
 
-function removeItem(index){
+orders.forEach(
 
-orders.splice(index,1);
+row=>{
 
-if(orders.length===0){
+let match=
 
-document.getElementById("cart").style.display="none";
+row.match(
 
-document.getElementById("items").innerHTML="";
+/—\s*(\d+)\s*ريال/
 
-document.getElementById("total").innerHTML="💰 الإجمالي: 0 ريال";
+);
 
-document.getElementById("qtyTotal").innerHTML="🧺 عدد القطع: 0";
+if(
 
-return;
+match
+
+){
+
+sum+=
+Number(
+match[1]
+);
 
 }
 
-updateCart();
+}
+
+);
+
+document
+.getElementById(
+"total"
+) 
+.innerHTML=
+
+"💰 الإجمالي: "+
+
+sum+
+
+" ريال";
+
+let qtyTotal=0;
+
+orders.forEach(
+
+row=>{
+
+let match=
+
+row.match(
+
+/×\s*(\d+)/
+
+);
+
+if(
+
+match
+
+){
+
+qtyTotal+=
+Number(
+match[1]
+);
+
+}
+
+}
+
+);
+
+document
+.getElementById(
+"qtyTotal"
+)
+.innerHTML=
+
+"🧺 عدد القطع: "+
+
+qtyTotal;
+
+document
+.getElementById( 
+"items"
+)
+.innerHTML=
+
+orders
+
+.map(
+
+(x,i)=>
+
+"<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:10px'>" +
+
+"<span>"+x+"</span>" +
+
+"<span onclick='removeItem("+i+")' style='cursor:pointer;color:#ef4444;font-size:20px'>🗑️</span>" +
+
+"</div>"
+
+)
+
+.join("");
+
+
+document
+.querySelector(
+'[name=service]'
+)
+.selectedIndex=0;
+
+document
+.querySelector(
+'[name=qty]'
+)
+.value=1;
+
+};
+
+function removeItem(index){
+
+orders.splice(
+index,
+1
+);
+if(
+orders.length===0
+){
+
+document
+.getElementById(
+"cart"
+)
+.style.display=
+"none";
+
+document
+.getElementById(
+"items"
+)
+.innerHTML="";
+
+document
+.getElementById(
+"total"
+)
+.innerHTML=
+
+"💰 الإجمالي: 0 ريال";
+document
+.getElementById(
+"qtyTotal"
+)
+.innerHTML=
+
+"🧺 عدد القطع: 0";
+return;
 
 }
 
@@ -1570,50 +1682,7 @@ orders
 
 }
 
-document
-.querySelector(
-'[name=service]'
-)
 
-.addEventListener(
-
-"change",
-
-function(){
-
-let box=
-
-document.getElementById(
-"shemaghOptions"
-);
-
-if(
-
-box
-
-){
-
-box.style.display=
-
-this.value==="شماغ"
-
-||
-
-this.value==="غترة"
-
-?
-
-"block"
-
-:
-
-"none";
-
-}
-
-}
-
-);
 function getLocation(){
 
 if(
